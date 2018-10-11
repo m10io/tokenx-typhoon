@@ -17,9 +17,12 @@ resource "aws_route53_record" "etcds" {
 resource "aws_instance" "controllers" {
   count = "${var.controller_count}"
 
-  tags = {
-    Name = "${var.cluster_name}-controller-${count.index}"
-  }
+  tags = "${map(
+    "Name", "${var.cluster_name}-controller-${count.index}",
+    "kubernetes.io/cluster/${var.cluster_name}", "1",
+    "KubernetesCluster", "${var.cluster_name}",
+    "kubernetes.io/role/master", "1"
+  )}"
 
   instance_type = "${var.controller_type}"
 
@@ -40,6 +43,8 @@ resource "aws_instance" "controllers" {
   lifecycle {
     ignore_changes = ["ami"]
   }
+
+  iam_instance_profile = "${aws_iam_instance_profile.controller_profile.name}"
 }
 
 # Controller Container Linux Config
