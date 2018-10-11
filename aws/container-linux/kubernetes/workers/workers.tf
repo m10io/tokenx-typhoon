@@ -32,11 +32,23 @@ resource "aws_autoscaling_group" "workers" {
   # used. Disable wait to avoid issues and align with other clouds.
   wait_for_capacity_timeout = "0"
 
-  tags = [{
-    key                 = "Name"
-    value               = "${var.name}-worker"
-    propagate_at_launch = true
-  }]
+  tags = [
+    {
+      key                 = "Name"
+      value               = "${var.name}-worker"
+      propagate_at_launch = true
+    },
+    {
+      key                 = "KubernetesCluster"
+      value               = "${var.name}"
+      propagate_at_launch = true
+    },
+    {
+      key                 = "kubernetes.io/cluster/${var.name}"
+      value               = "1"
+      propagate_at_launch = true
+    },
+  ]
 }
 
 # Worker template
@@ -63,6 +75,8 @@ resource "aws_launch_configuration" "worker" {
     create_before_destroy = true
     ignore_changes        = ["image_id"]
   }
+
+  iam_instance_profile = "${aws_iam_instance_profile.worker_profile.name}"
 }
 
 # Worker Ignition config
