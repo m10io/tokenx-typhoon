@@ -16,7 +16,6 @@ resource "aws_iam_role" "worker_role" {
   assume_role_policy = "${data.aws_iam_policy_document.worker_role_doc.json}"
 }
 
-# Permission borrowed from https://github.com/kubernetes/kops/issues/1873
 data "aws_iam_policy_document" "worker_policy_doc" {
   statement {
     actions = [
