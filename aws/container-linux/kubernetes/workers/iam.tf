@@ -21,15 +21,7 @@ data "aws_iam_policy_document" "worker_policy_doc" {
     actions = [
       "ec2:DescribeInstances",
       "ec2:DescribeRegions",
-      "ecr:CreateRepository",
-      "ecr:GetAuthorizationToken",
-      "ecr:BatchCheckLayerAvailability",
-      "ecr:GetDownloadUrlForLayer",
-      "ecr:GetRepositoryPolicy",
-      "ecr:DescribeRepositories",
-      "ecr:InitiateLayerUpload",
-      "ecr:ListImages",
-      "ecr:BatchGetImage",
+      "ecr:*"
     ]
 
     resources = ["*"]
