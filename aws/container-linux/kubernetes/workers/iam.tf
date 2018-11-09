@@ -22,11 +22,7 @@ data "aws_iam_policy_document" "worker_policy_doc" {
       "ec2:DescribeInstances",
       "ec2:DescribeRegions",
       "ecr:*",
-      "codecommit:BatchGet*",
-      "codecommit:Get*",
-      "codecommit:Describe*",
-      "codecommit:List*",
-      "codecommit:GitPull",
+      "codecommit:*",
     ]
 
     resources = ["*"]
