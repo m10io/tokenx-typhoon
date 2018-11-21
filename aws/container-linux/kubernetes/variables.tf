@@ -140,3 +140,13 @@ variable "enable_reporting" {
   description = "Enable usage or analytics reporting to upstreams (Calico)"
   default     = "false"
 }
+
+variable "cluster_id" {
+  description = "The identifier for the cluster for AWS IAM authentication purposes"
+  type = "string"
+}
+
+variable "admin_role_arns" {
+  description = "A list of ARNs that will be mapped to cluster administrators"
+  type = "list"
+}
