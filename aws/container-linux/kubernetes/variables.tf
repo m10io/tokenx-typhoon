@@ -144,3 +144,10 @@ variable "admin_role_arns" {
   description = "A list of ARNs that will be mapped to cluster administrators"
   type = "list"
 }
+
+# IPs allowed to access API Server
+variable "allowed_ips" {
+  description = "A list of IP addresses permitted to access Kubernetes API Server"
+  type        = "list"
+  default     = ["0.0.0.0/0"]
+}
