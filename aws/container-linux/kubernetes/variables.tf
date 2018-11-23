@@ -134,3 +134,13 @@ variable "cluster_domain_suffix" {
   type        = "string"
   default     = "cluster.local"
 }
+
+# IPs allowed to access API Server
+variable "allowed_ips" {
+  description = "A list of IP addresses permitted to access Kubernetes API Server"
+  type        = "list"
+
+  default = [
+    "0.0.0.0/0",
+  ]
+}

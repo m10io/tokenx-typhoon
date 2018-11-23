@@ -49,7 +49,7 @@ resource "aws_security_group_rule" "controller-apiserver" {
   protocol    = "tcp"
   from_port   = 6443
   to_port     = 6443
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks = "${var.allowed_ips}"
 }
 
 resource "aws_security_group_rule" "controller-flannel" {
