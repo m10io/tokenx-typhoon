@@ -134,3 +134,13 @@ variable "cluster_domain_suffix" {
   type        = "string"
   default     = "cluster.local"
 }
+
+variable "cluster_id" {
+  description = "The identifier for the cluster for AWS IAM authentication purposes"
+  type = "string"
+}
+
+variable "admin_role_arns" {
+  description = "A list of ARNs that will be mapped to cluster administrators"
+  type = "list"
+}

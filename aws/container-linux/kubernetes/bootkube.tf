@@ -12,4 +12,6 @@ module "bootkube" {
   service_cidr          = "${var.service_cidr}"
   cluster_domain_suffix = "${var.cluster_domain_suffix}"
   cloud_provider        = "aws"
+  cluster_id = "${var.cluster_id}"
+  admin_role_arns = "${var.admin_role_arns}"
 }
