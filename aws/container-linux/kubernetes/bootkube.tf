@@ -14,4 +14,5 @@ module "bootkube" {
   cloud_provider        = "aws"
   cluster_id = "${var.cluster_id}"
   admin_role_arns = "${var.admin_role_arns}"
+  enable_reporting      = "${var.enable_reporting}"
 }

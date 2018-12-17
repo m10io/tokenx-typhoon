@@ -151,3 +151,9 @@ variable "allowed_ips" {
   type        = "list"
   default     = ["0.0.0.0/0"]
 }
+
+variable "enable_reporting" {
+  type        = "string"
+  description = "Enable usage or analytics reporting to upstreams (Calico)"
+  default     = "false"
+}

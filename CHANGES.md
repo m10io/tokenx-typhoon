@@ -4,8 +4,28 @@ Notable changes between versions.
 
 ## Latest
 
+* Kubernetes [v1.13.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#v1131)
+* Update Calico from v3.3.2 to [v3.4.0](https://docs.projectcalico.org/v3.4/releases/)
+  * Install CNI plugins with an init container rather than a sidecar
+  * Improve the `calico-node` ClusterRole
+
+#### Google Cloud
+
+* Increase TCP proxy apiserver backend service timeout from 1 minute to 5 minutes ([#361](https://github.com/poseidon/typhoon/pull/361))
+  * Align `port-forward` behavior closer to AWS/Azure (no timeout)
+
 #### Addons
 
+* Update Grafana from v5.4.0 to v5.4.2
+
+## v1.13.0
+
+* Kubernetes [v1.13.0](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#v1130)
+* Update Calico from v3.3.1 to [v3.3.2](https://docs.projectcalico.org/v3.3/releases/)
+
+#### Addons
+
+* Update Grafana from v5.3.4 to v5.4.0
 * Disable Grafana login form, since admin user can't be disabled ([#352](https://github.com/poseidon/typhoon/pull/352))
   * Example manifests aim to provide a read-only dashboard view
 
