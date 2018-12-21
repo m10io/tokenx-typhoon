@@ -4,6 +4,8 @@ module "workers" {
 
   # AWS
   vpc_id          = "${aws_vpc.network.id}"
+  dns_zone        = "${var.dns_zone}"
+  dns_zone_id     = "${var.dns_zone_id}"
   subnet_ids      = ["${aws_subnet.public.*.id}"]
   security_groups = ["${aws_security_group.worker.id}"]
   count           = "${var.worker_count}"
