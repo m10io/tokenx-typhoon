@@ -66,7 +66,7 @@ data "aws_iam_policy_document" "controller_policy_doc" {
     ]
 
     resources = [
-      "arn:aws:route53:::hostedzone/Z3IKKBW5GMZJOI",
+      "arn:aws:route53:::hostedzone/${var.dns_zone_id}",
     ]
   }
 

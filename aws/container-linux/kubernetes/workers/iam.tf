@@ -24,9 +24,39 @@ data "aws_iam_policy_document" "worker_policy_doc" {
       "ecr:*",
       "codecommit:*",
     ]
+    resources = ["*"]
+  }
+
+  statement {
+    actions = [
+      "route53:ChangeResourceRecordSets",
+      "route53:ListResourceRecordSets",
+      "route53:GetHostedZone",
+    ]
+
+    resources = [
+      "arn:aws:route53:::hostedzone/${var.dns_zone_id}",
+    ]
+  }
+
+  statement {
+    actions = [
+      "route53:GetChange",
+    ]
+
+    resources = [
+      "arn:aws:route53:::change/*",
+    ]
+  }
+
+  statement {
+    actions = [
+      "route53:ListHostedZones",
+    ]
 
     resources = ["*"]
   }
+
 
   statement {
     actions   = ["sts:AssumeRole"]
